@@ -27,15 +27,18 @@ const NumberIcon = ({ number }: { number: number; }) => {
 const HowItWorkCard = ({ card, index }: HowItWorkCardProps) => {
 
   return (
-    <Card className="w-[250px] text-center">
-      <CardHeader>
-        <CardTitle className="flex flex-col items-center gap-3 mb-1">
-          <NumberIcon number={index + 1} />
-          {card.title}
-        </CardTitle>
-        <CardDescription>{card.description}</CardDescription>
-      </CardHeader>
-    </Card>
+    <div
+      key={index}
+      className="flex flex-col justify-between gap-6 rounded-lg border p-6 transition-all hover:-mt-2 hover:mb-2"
+    >
+      <div className="flex flex-col gap-3 items-center text-center">
+        <NumberIcon number={index + 1} />
+        <div>
+          <h4 className="text-xl text-primary mb-1">{card.title}</h4>
+          <p className="text-base opacity-75">{card.description}</p>
+        </div>
+      </div>
+    </div>
 
   );
 

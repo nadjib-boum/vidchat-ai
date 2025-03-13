@@ -1,19 +1,21 @@
-"use client";
-
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import { TextAnimate } from "@/components/magicui/text-animate";
+import CTAButton from "@/components/CTAButton";
+import LoginButton from "@/components/LoginButton";
 import { cn } from "@/lib/utils";
-import CTAButton from "../CTAButton";
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col items-center gap-10 overflow-hidden rounded-lg bg-background p-20 h-[75vh]">
-      <div className="text-5xl font-bold flex flex-col gap-3 items-center mt-20">
-        <TextAnimate animation="blurIn" duration={.8}>Turn Any Video into a Chat</TextAnimate> 
-        <TextAnimate animation="blurIn" duration={.8} delay={1}>No More Endless Scrubbing!</TextAnimate> 
+    <section className="relative flex flex-col items-center gap-10 overflow-hidden rounded-lg bg-background md:p-20 p-10 h-[70vh]">
+      <div className="text-4xl md:text-5xl lg:text-6xl flex flex-col gap-4 items-center mt-20 text-center">
+        <TextAnimate animation="blurIn" duration={1} className="font-bold">Turn Any Video into a Chat</TextAnimate> 
+        <p className="md:text-xl text-lg text-white">
+          Say No More To Endless Scrubbing!
+        </p>
       </div>
-      <div>
+      <div className="flex gap-2">
         <CTAButton text="Try It Now" />
+        <LoginButton />
       </div>
       <div>
         <GridPattern
@@ -28,7 +30,7 @@ const Hero = () => {
           )}
         />
       </div>
-    </div>
+    </section>
   );
 }
 

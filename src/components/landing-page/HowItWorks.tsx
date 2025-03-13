@@ -29,7 +29,7 @@ const HowItWorks = () => {
             How It Works
           </Balancer>
         </h2>
-        <div className="flex flex-col md:flex-row justify-around items-center">
+        <div className="grid gap-6 md:mt-12 md:grid-cols-3">
           { cards.map((card, index) => <HowItWorkCard key={index} card={card} index={index} />) }
         </div>
       </Container>
