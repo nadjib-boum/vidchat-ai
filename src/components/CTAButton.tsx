@@ -1,14 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-type CTAButtonProps = {
-  text: string;
-}
-
-const CTAButton = ({ text }: CTAButtonProps) => {
+const CTAButton = () => {
 
   return (
-    <Link href={"/"}>
+    <Link href={"/signup"}>
       <Button size={"lg"}>Try It Now</Button>
     </Link>
   );

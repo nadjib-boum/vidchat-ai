@@ -14,7 +14,7 @@ const Hero = () => {
         </p>
       </div>
       <div className="flex gap-2">
-        <CTAButton text="Try It Now" />
+        <CTAButton />
         <LoginButton />
       </div>
       <div>
