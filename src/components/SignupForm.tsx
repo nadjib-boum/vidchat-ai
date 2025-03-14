@@ -6,19 +6,18 @@ import Link from "next/link"
 import { signIn } from "next-auth/react";
 
 /* <components> */
-  import { Button } from "@/components/ui/button"
   import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
   import { Input } from "@/components/ui/input"
   import { Label } from "@/components/ui/label"
   import { BorderBeam } from "@/components/magicui/border-beam"
   import ErrorField from "@/components/ErrorField";
   import FormError from "@/components/FormError";
+  import SubmitButton from "@/components/SubmitButton";
 /* </components> */
 
 import { cn } from "@/lib/utils"
 import { signup } from "@/actions";
 import type { SignupFormState } from "@/types";
-import SubmitButton from "./SubmitButton";
 
 export default function SignupForm({ className,...props }: React.ComponentPropsWithoutRef<"div">) {
 
@@ -130,7 +129,7 @@ export default function SignupForm({ className,...props }: React.ComponentPropsW
                 />
                 { state.error?.code == "INVALID_INPUT" && state.error?.details![0].password && <ErrorField error={state.error?.details![0].password} /> }
                 </div>
-              <SubmitButton text="Login" />
+              <SubmitButton text="Register" />
               {
                 state.error?.code != "INVALID_INPUT" && <FormError message={state.error?.message!} />
               }
