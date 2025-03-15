@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-// import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import { auth } from "@/utils/auth";
 
 export default async function ({ children }: { children: React.ReactNode }) {
@@ -12,7 +12,7 @@ export default async function ({ children }: { children: React.ReactNode }) {
 
   return (
     <div id="dashboard">
-      {/* <Navbar /> */}
+      <Navbar />
       {children}
     </div>
   );

@@ -1,11 +1,11 @@
 "use server";
+
 import userService from "@/services/user";
+import videoService from "@/services/video";
 import APIError from "@/utils/error";
-import { auth } from "@/utils/auth";
 import { type SignupFormState, signupSchema } from "@/types";
 
 export async function signup(formData: FormData): Promise<SignupFormState> {
-  "use server";
 
   try {
 
@@ -57,5 +57,11 @@ export async function signup(formData: FormData): Promise<SignupFormState> {
     }
 
   } 
+
+}
+
+export async function deleteVideo (id: number) {
+
+  return await videoService.deleteVideo (id);
 
 }

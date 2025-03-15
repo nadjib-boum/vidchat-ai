@@ -1,6 +1,12 @@
 import { z } from "zod";
 import type { APIErrorParams } from "@/utils/error";
 
+export type Video = {
+  id: number;
+  name: string;
+  date: string;
+}
+
 export const signupSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   username: z.string().min(4, { message: "Username must be at least 3 characters" }),
