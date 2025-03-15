@@ -79,6 +79,7 @@ export default function SignupForm({ className,...props }: React.ComponentPropsW
 
   } 
 
+  console.log ("err code", state.error?.code)
 
   return (
     <div className={cn("flex flex-col gap-6 overflow-hidden", className)} {...props}>
@@ -131,7 +132,7 @@ export default function SignupForm({ className,...props }: React.ComponentPropsW
                 </div>
               <SubmitButton text="Register" />
               {
-                state.error?.code != "INVALID_INPUT" && <FormError message={state.error?.message!} />
+                state.error && state.error?.code != "INVALID_INPUT" && <FormError message={state.error?.message!} />
               }
             </div>
             <div className="mt-4 text-center text-sm">
