@@ -12,7 +12,7 @@ import { signIn } from "next-auth/react";
   import { BorderBeam } from "@/components/magicui/border-beam"
   import ErrorField from "@/components/ErrorField";
   import FormError from "@/components/FormError";
-  import SubmitButton from "@/components/SubmitButton";
+  import SubmitButton from "@/components/buttons/SubmitButton";
 /* </components> */
 
 import { cn } from "@/lib/utils"

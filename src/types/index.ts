@@ -13,6 +13,14 @@ export const signupSchema = z.object({
   password: z.string().min(4, { message: "Password must be at least 8 characters" })
 })
 
+export const videoSchema = z.object({
+  name: z.string().nonempty(),
+  url: z.string().nonempty(),
+  userId: z.number(),
+})
+
+export type VideoInsert = z.infer<typeof videoSchema>;
+
 export type LoginData = {
   username: string;
   password: string;

@@ -11,7 +11,7 @@ export default async function ({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div id="dashboard">
+    <div id="dashboard" className="h-screen flex flex-col items-center">
       <Navbar />
       {children}
     </div>

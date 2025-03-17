@@ -7,6 +7,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+import { toast } from "sonner"
 import { Trash2, MessageSquare } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -18,6 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import UploadButton from "@/components/buttons/UploadButton"
 
 import { deleteVideo } from "@/actions"
 import type { Video } from "@/types"
@@ -60,14 +62,26 @@ export default function VideosDataTable ({ data }: VideosDataTableProps) {
 
   const handleDelete = async (id: number) => {
     
-    const res = await deleteVideo (id);
+    try {
 
-    console.log ("res", res)
+      const res = await deleteVideo (id);
+
+      toast.success ("Video deleted successfully");
+
+      console.log ("res", res);
+      
+    } catch {
+
+      toast.error("Something Went Wrong", {
+        description: "Video deletion failed"
+      });
+
+    }
 
   }
 
   const handleChat = (id: number) => {
-    router.push (`/video/${id}`)
+    router.push (`/dashboard/video/${id}`)
   }
 
   const table = useReactTable({
@@ -110,8 +124,11 @@ export default function VideosDataTable ({ data }: VideosDataTableProps) {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+              <TableCell colSpan={columns.length} className="h-24 text-center py-8">
+                <div className="flex flex-col items-center gap-3">
+                  <span className="text-lg">No Videos Here</span>
+                  <UploadButton />
+                </div>
               </TableCell>
             </TableRow>
           )}

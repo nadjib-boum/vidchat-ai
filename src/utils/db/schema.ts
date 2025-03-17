@@ -1,4 +1,4 @@
-import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, varchar, timestamp } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -7,12 +7,10 @@ export const usersTable = pgTable("users", {
   password: varchar({ length: 255 }).notNull(),
 });
 
-export const roomsTable = pgTable("roomsTable", {
+export const videosTable = pgTable("videos", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  roomType: varchar("roomType", { length: 255 }).notNull(),
-  designType: varchar("designType", { length: 255 }).notNull(),
-  details: varchar("details", { length: 255 }), // Nullable by default
-  originalImage: varchar("originalImage", { length: 255 }).notNull(),
-  newImage: varchar("newImage", { length: 255 }).notNull(),
-  userId: integer()
+  name: varchar({ length: 255 }).notNull(),
+  url: varchar({ length: 500 }).notNull(),
+  userId: integer().notNull(),
+  date: timestamp("date").defaultNow().notNull(),
 });

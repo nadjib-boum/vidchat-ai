@@ -1,7 +1,7 @@
 import { GridPattern } from "@/components/magicui/grid-pattern";
 import { TextAnimate } from "@/components/magicui/text-animate";
-import CTAButton from "@/components/CTAButton";
-import LoginButton from "@/components/LoginButton";
+import CTAButton from "@/components/buttons/CTAButton";
+import LoginButton from "@/components/buttons/LoginButton";
 import { cn } from "@/lib/utils";
 
 const Hero = () => {
