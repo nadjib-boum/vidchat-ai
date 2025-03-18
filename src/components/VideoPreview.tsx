@@ -8,9 +8,11 @@ type VideoPreviewProps = {
 const VideoPreview = ({ url }: VideoPreviewProps) => {
 
   return (
-    <video width="500" controls>
-      <source src={url} type="video/mp4" />
-    </video>
+    <div className="flex flex-col justify-center items-center w-[50%]">
+      <video width="500" controls>
+        <source src={url} type="video/mp4" />
+      </video>
+    </div>
   )
 
 }

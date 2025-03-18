@@ -9,7 +9,7 @@ export default async function Page({ params }: {params: Promise<{ id: string }> 
   const video = await videoService.getVideo (+id);
   
   return (
-    <div className="flex justify-between items-stretch overflow-auto flex-1 w-[80%] h-full p-10 border border-amber-50">
+    <div className="flex justify-between items-stretch overflow-auto flex-1 w-[80%] h-full p-5">
       <VideoPreview url={video.url} />
       <Chat />
     </div>

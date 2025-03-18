@@ -1,6 +1,13 @@
 import { z } from "zod";
 import type { APIErrorParams } from "@/utils/error";
 
+export type Message = {
+  role: "USER" | "ASSISTANT",
+  text: string;
+  date: string;
+}
+
+
 export type Video = {
   id: number;
   name: string;

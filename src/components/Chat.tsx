@@ -1,6 +1,11 @@
+import ChatForm from "@/components/ChatForm";
+
 const Chat = () => {
+
   return (
-    <div className="p-5 w-[50%] h-full border border-white">chat</div>
+    <div className="w-[50%]">
+      <ChatForm />
+    </div>
   )
 }
 
