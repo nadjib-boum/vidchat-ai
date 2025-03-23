@@ -1,4 +1,4 @@
-import ChatForm from "@/components/ChatForm";
+import ChatForm from "@/components/forms/ChatForm";
 
 const Chat = () => {
 

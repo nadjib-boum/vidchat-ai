@@ -3,13 +3,15 @@ import ThinkingLoading from "@/components/ThinkingLoading";
 import { AssistantMessage, UserMessage } from "@/components/ChatMessages";
 import { useScrollArea } from "@/hooks/use-scrollarea";
 import type { Message } from "@/types";
+import ChatErrorAlert from "./ChatErrorAlert";
 
 type MessagesProps = {
   messages: Message[];
   isThinking: boolean;
+  isError: boolean;
 }
 
-const Messages = ({ messages, isThinking }: MessagesProps) => {
+const Messages = ({ messages, isThinking, isError }: MessagesProps) => {
 
   const { scrollAreaRef } = useScrollArea ({ size: messages.length });
 
@@ -23,6 +25,7 @@ const Messages = ({ messages, isThinking }: MessagesProps) => {
           })
         }
         { isThinking ? <ThinkingLoading /> : null }
+        { isError ? <ChatErrorAlert /> : null }
       </div>
     </ScrollArea>
   );
