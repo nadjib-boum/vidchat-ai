@@ -1,38 +1,15 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import CopyButton from "@/components/buttons/CopyButton";
+import ThinkingLoading from "@/components/ThinkingLoading";
+import { AssistantMessage, UserMessage } from "@/components/ChatMessages";
 import { useScrollArea } from "@/hooks/use-scrollarea";
 import type { Message } from "@/types";
 
-type UserMessageProps = {
-  message: Message;
-}
-
-const UserMessage = ({ message }: UserMessageProps) => {
-  return (
-    <div className="flex justify-end w-max-[60%]">
-      <span className="px-3 py-2 bg-white text-black rounded-xl">{message.content}</span>
-    </div>
-  );
-}
-
-type AssistantMessageProps = {
-  message: Message;
-}
-
-const AssistantMessage = ({ message }: AssistantMessageProps) => {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <span className="text-white rounded-xl">{message.content}</span>
-      <CopyButton text={message.content} />
-    </div>
-  );
-}
-
 type MessagesProps = {
-  messages: Message[]
+  messages: Message[];
+  isThinking: boolean;
 }
 
-const Messages = ({ messages }: MessagesProps) => {
+const Messages = ({ messages, isThinking }: MessagesProps) => {
 
   const { scrollAreaRef } = useScrollArea ({ size: messages.length });
 
@@ -45,6 +22,7 @@ const Messages = ({ messages }: MessagesProps) => {
             return (msg.role != "user") ? <AssistantMessage key={msgKey} message={msg} /> : <UserMessage key={msgKey} message={msg} />
           })
         }
+        { isThinking ? <ThinkingLoading /> : null }
       </div>
     </ScrollArea>
   );
