@@ -10,7 +10,7 @@ type UserMessageProps = {
 const UserMessage = ({ message }: UserMessageProps) => {
   return (
     <div className="flex justify-end w-max-[60%]">
-      <span className="px-3 py-2 bg-white text-black rounded-xl">{message.text}</span>
+      <span className="px-3 py-2 bg-white text-black rounded-xl">{message.content}</span>
     </div>
   );
 }
@@ -22,8 +22,8 @@ type AssistantMessageProps = {
 const AssistantMessage = ({ message }: AssistantMessageProps) => {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="text-white rounded-xl">{message.text}</span>
-      <CopyButton text={message.text} />
+      <span className="text-white rounded-xl">{message.content}</span>
+      <CopyButton text={message.content} />
     </div>
   );
 }
@@ -42,9 +42,7 @@ const Messages = ({ messages }: MessagesProps) => {
         { 
           messages.map ((msg, index) => {
             const msgKey = `${msg.role}_${index}`;
-            return (
-              (msg.role == "ASSISTANT") ? <AssistantMessage key={msgKey} message={msg} /> : <UserMessage key={msgKey} message={msg} />
-            )
+            return (msg.role != "user") ? <AssistantMessage key={msgKey} message={msg} /> : <UserMessage key={msgKey} message={msg} />
           })
         }
       </div>

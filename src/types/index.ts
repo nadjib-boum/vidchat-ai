@@ -1,12 +1,8 @@
 import { z } from "zod";
 import type { APIErrorParams } from "@/utils/error";
+import type { UIMessage } from "ai";
 
-export type Message = {
-  role: "USER" | "ASSISTANT",
-  text: string;
-  date: string;
-}
-
+export type Message = UIMessage;
 
 export type Video = {
   id: number;
